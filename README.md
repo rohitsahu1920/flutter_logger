@@ -1,39 +1,34 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Save logger package will help developer to save logger in Text format
+and can delete and open the logger as well 
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+TODO: Save logger has crete logger and open logger and delete logger features.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```dart
+save_logger: latest version
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
 
 ```dart
-const like = 'sample';
+SaveLogger.eventLog(className: "Hello Class",
+methodName: "Method Name",
+postRequest: "Post Req",
+postResponse: "Past Response",
+appLog: "App Log",
+url: "Url will be here");
+
+String path = await SaveLogger.getLogFilePath();
+
+SaveLogger.printValue(path);
+
+SaveLogger.openLogger(path: path);
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+You don't need any additional info for this

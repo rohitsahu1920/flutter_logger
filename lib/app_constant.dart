@@ -1,20 +1,10 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'Strings.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-
-class SaveLogger {
-
-  static void printValue(String value) {
-    if (kDebugMode) {
-      print(value);
-    }
-  }
-
+class System {
   static Future<void> eventLog({
     String className = "",
     String methodName = "",
@@ -33,12 +23,12 @@ class SaveLogger {
           ? "[ ${LogConstants.methodName} $methodName ] |"
           : "";
       final String urlEnd =
-      url.isNotEmpty ? "[ ${LogConstants.apiUrl} $url} ] |" : "";
+          url.isNotEmpty ? "[ ${LogConstants.apiUrl} $url} ] |" : "";
       final String pRequest = postRequest.isNotEmpty
           ? "[ ${LogConstants.apiRequest} $postRequest ] |"
           : "";
       final String log =
-      appLog.isNotEmpty ? "[ ${LogConstants.appLog} $appLog ]" : "";
+          appLog.isNotEmpty ? "[ ${LogConstants.appLog} $appLog ]" : "";
 
       String finalLog =
           "${DateTime.now().toLocal()} ${classN.isNotEmpty ? classN : ""} ${methodN.isNotEmpty ? methodN : ""} ${urlEnd.isNotEmpty ? urlEnd : ""} ${pRequest.isNotEmpty ? pRequest : ""} ${postResponse.isNotEmpty ? postResponse : ""} ${log.isNotEmpty ? log : ""} \n";
@@ -67,9 +57,5 @@ class SaveLogger {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
     directory?.delete(recursive: true);
-  }
-
-  static Future<void> openLogger({required String path}) async{
-    OpenFile.open(path);
   }
 }
